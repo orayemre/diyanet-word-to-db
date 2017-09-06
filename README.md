@@ -1,4 +1,4 @@
-#Diyanet İşleri Word (doc) Dosya Okuma
-Diyanet İşleri Başkanlığının Her Yıl Ücretli Paylaştığı Türkiye Namaz Vakitlerinin Word Dosyasından Okunmasına Yarayan Ufak Projemiz.
+#Diyanet İşleri Word (docx) Dosya Okuma
+Diyanet İşleri Başkanlığının Her Yıl Ücretli Paylaştığı Türkiye Namaz Vakitlerinin Word Dosyasından Okunmasına Yarayan Ufak Bir Uygulama..
 
-Şuan Sadece DOC ve TXT Formatlarını Okuyabiliyor.
+Ben SQL Kayıt Ediyorum Siz Kendiniz Kendinize Göre Değiştirirsiniz
