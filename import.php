@@ -3,6 +3,7 @@
         ini_set('display_errors', '0');
         set_time_limit(0);
 
+
         require_once "class.php";
         require_once "function.php";
         require_once "db.php";
@@ -47,7 +48,7 @@
                         foreach ($results[0] as $value) {
                             preg_match_all($pattern, $value, $resultst);
                             $dayvalue   =   '+'.$daycounter.' day';
-                            $gun        =   date('Y.m.d',strtotime($dayvalue,$day));
+                            $gun        =   date('Y.n.j',strtotime($dayvalue,$day));
                             $imsak      =   $resultst['imsak'][0];
                             $gunes      =   $resultst['gunes'][0];
                             $ogle       =   $resultst['ogle'][0];
@@ -55,8 +56,18 @@
                             $aksam      =   $resultst['aksam'][0];
                             $yatsi      =   $resultst['yatsi'][0];
                             $ksaat      =   $resultst['ksaat'][0];
+
                             /**/
-                            $db->query("INSERT INTO vakitler ( 
+                            echo $daydate    = date('d.m.Y',strtotime($dayvalue,$day));
+                            echo "<br>";
+                            $row	    = $db->get_row("SELECT * FROM hicri WHERE hicri_date = '{$daydate}' ");
+                            if ( $db->num_rows == '1'){
+                                $vakit_hicritarihuzun   = $row->hicri_title;
+                                $vakit_hicritarihkisa   = $row->hicri_dateshort;
+                                $vakit_miladitarihuzun  = $row->hicri_miladiuzun;
+
+                                /**/
+                                $db->query("INSERT INTO vakitler ( 
                                                                   vakit_sehir,
                                                                   vakit_ilce,
                                                                   vakit_gun,
@@ -66,7 +77,10 @@
                                                                   vakit_ikindi,
                                                                   vakit_aksam,
                                                                   vakit_yatsi,
-                                                                  vakit_kible 
+                                                                  vakit_kible,
+                                                                  vakit_hicritarihuzun,
+                                                                  vakit_hicritarihkisa,
+                                                                  vakit_miladitarihuzun
                                                                   ) VALUES ( 
                                                                   '{$cityid}',
                                                                   '{$districtid}',
@@ -77,10 +91,16 @@
                                                                   '{$ikindi}',
                                                                   '{$aksam}',
                                                                   '{$yatsi}',
-                                                                  '{$ksaat}'
-                                                                   )");
+                                                                  '{$ksaat}',
+                                                                  '{$vakit_hicritarihuzun}',
+                                                                  '{$vakit_hicritarihkisa}',
+                                                                  '{$vakit_miladitarihuzun}')");
+                                /**/
+                            }
                             /**/
                             $daycounter++;
+
+
                         }
 
 
