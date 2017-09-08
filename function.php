@@ -39,4 +39,12 @@
                     'Kasım',
                     'Aralık'
                 );
+            function findreplacedocxname ($par){
+													return str_replace( 
+													array("Ç","Ğ","İ","Ö","Q","Ş","Ü","I"),
+													array("A","A","A","A","A","A","A","A"),
+													$par
+                );
+            }
+
 ?>
