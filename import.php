@@ -26,11 +26,11 @@
 					
                     if ($districtvalue == '.' or $districtvalue == '..') { } else {
 						
-							$day            = strtotime('01/01/2018');
-                            echo $district      	= iconv('','UTF-8',$districtvalue);
-							echo " ";
-							$districtname  	= findreplace($district);
-							
+							$day            	= strtotime('01/01/2018');
+                            echo $district      = iconv('','UTF-8',$districtvalue);
+							echo "<br>";
+							$districtname  		= findreplace($district);
+							 
 							$districtdocx 		    = $districtfile.'/'.$districtvalue;
 							$districtdocxnew 	    = $districtfile.'/'.findreplacedocxname($district);
                             rename($districtdocx,$districtdocxnew);		
@@ -57,7 +57,7 @@
                                 $ksaat      =   $resultst['ksaat'][0];
 
                                 /**/
-                                echo $daydate    = date('d.m.Y',strtotime($dayvalue,$day));
+                                $daydate    = date('d.m.Y',strtotime($dayvalue,$day));
                                 $row	    = $db->get_row("SELECT * FROM hicri WHERE hicri_date = '{$daydate}' ");
                                 if ( $db->num_rows == '1'){
                                     $vakit_hicritarihuzun   = $row->hicri_title;
@@ -106,7 +106,7 @@
 
                 };
 
-                echo "<br>";
+                
             }
 
         }
